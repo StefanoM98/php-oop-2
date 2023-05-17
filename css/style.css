@@ -1,0 +1,13 @@
+.container {
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 80%;
+    margin: 0 auto;
+
+}
+
+.card {
+    color: black;
+    text-align: center;
+    padding: 1rem 2rem;
+    margin: 2rem;
+}
