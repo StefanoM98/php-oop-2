@@ -5,10 +5,26 @@ require_once __DIR__ . "/Models/Category.php";
 require_once __DIR__ . "/Models/CardProduct.php";
 
 
-$product1 = new Product("https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQ8Hso-S_1VVt6YCMfkHaM9EO8jTd4l7Fl0SENe0hK5X9P_iwysU5FLlhp9hDb4Iknwm2Br9qMD42CskH_riX-6WNbtDYpr5BjcXdJ2XcicXv0tD-uGJLfRgBjiBVfpWnfnKXU&usqp=CAc", 1, "Ciotola", 10, new Dogs(), "accessorio");
-$product2 = new Product("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjbbykhebiEYh1dAA6WK4eRH7qxKW3Et_o1w&usqp=CAU", 3, "Cuccia", 2.50, new Cats(), "accessorio");
-$product3 = new Product("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOovwg9a2Ezi9JxrCTpp2s6aPDUKB_nuAhWg&usqp=CAU", 10, "Croccantini", 11.49, new Cats(), "cibo");
+$product1 = new Product("https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQ8Hso-S_1VVt6YCMfkHaM9EO8jTd4l7Fl0SENe0hK5X9P_iwysU5FLlhp9hDb4Iknwm2Br9qMD42CskH_riX-6WNbtDYpr5BjcXdJ2XcicXv0tD-uGJLfRgBjiBVfpWnfnKXU&usqp=CAc", 1, "Ciotola", new Dogs(), "accessorio");
+try {
+    $product1->setPrice(20);
+} catch (Exception $err) {
+    echo $err->getMessage();
+}
+var_dump($product1);
 
+$product2 = new Product("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjbbykhebiEYh1dAA6WK4eRH7qxKW3Et_o1w&usqp=CAU", 3, "Cuccia", new Cats(), "accessorio");
+try {
+    $product2->setPrice(-20);
+} catch (Exception $err) {
+    echo $err->getMessage();
+}
+$product3 = new Product("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOovwg9a2Ezi9JxrCTpp2s6aPDUKB_nuAhWg&usqp=CAU", 10, "Croccantini", new Cats(), "cibo");
+try {
+    $product3->setPrice(40);
+} catch (Exception $err) {
+    echo $err->getMessage();
+}
 
 $card1 = new CardProduct($product1);
 $card2 = new CardProduct($product2);
